@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="5000">
+
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/locomotion" />
+        <!--        <OnSwipe-->
+        <!--            motion:touchAnchorId="@+id/locomotion"-->
+        <!--            motion:touchAnchorSide="right"-->
+        <!--            motion:dragDirection="dragRight" />-->
+
+
+        <KeyFrameSet>
+            <!-- Let the sunshine -->
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/sun"
+                motion:percentY="-0.05" />
+        </KeyFrameSet>
+
+        <KeyFrameSet>
+            <!-- Let's do the locomotion -->
+            <KeyPosition
+                motion:framePosition="25"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@id/locomotion"
+                motion:percentX="0.75"
+                motion:percentY="-0.3" />
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@id/locomotion"
+                motion:percentY="-0.4" />
+            <KeyPosition
+                motion:framePosition="75"
+                motion:keyPositionType="pathRelative"
+                motion:motionTarget="@id/locomotion"
+                motion:percentX="0.25"
+                motion:percentY="-0.3" />
+        </KeyFrameSet>
+
+
+        <!-- Rotate the sun -->
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="-360"
+                android:scaleX="2.0"
+                android:scaleY="2.0"
+                motion:framePosition="50"
+                motion:motionTarget="@id/sun" />
+            <KeyAttribute
+                android:rotation="-720"
+                motion:framePosition="100"
+                motion:motionTarget="@id/sun" />
+        </KeyFrameSet>
+
+        <!-- Change the background -->
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:framePosition="0"
+                motion:motionTarget="@id/background">
+                <CustomAttribute
+                    motion:attributeName="backgroundColor"
+                    motion:customColorValue="#d7f0f7" />
+            </KeyAttribute>
+            <KeyAttribute
+                motion:framePosition="50"
+                motion:motionTarget="@id/background">
+                <CustomAttribute
+                    motion:attributeName="backgroundColor"
+                    motion:customColorValue="#5ad1f2" />
+            </KeyAttribute>
+
+            <KeyAttribute
+                motion:framePosition="75"
+                motion:motionTarget="@id/background">
+                <CustomAttribute
+                    motion:attributeName="backgroundColor"
+                    motion:customColorValue="#064152" />
+            </KeyAttribute>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/locomotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/locomotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="8dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+</MotionScene>
