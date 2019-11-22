@@ -61,7 +61,7 @@
                 motion:motionTarget="@id/sun" />
         </KeyFrameSet>
 
-        <!-- Change background color -->
+        <!-- Change the background color -->
         <KeyFrameSet>
             <KeyAttribute
                 motion:framePosition="0"
