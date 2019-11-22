@@ -17,7 +17,7 @@
 
 
         <KeyFrameSet>
-            <!-- Let the sunshine -->
+            <!-- Let the sunshine (Adds the sun arc in its path)-->
             <KeyPosition
                 motion:framePosition="50"
                 motion:keyPositionType="parentRelative"
@@ -26,7 +26,7 @@
         </KeyFrameSet>
 
         <KeyFrameSet>
-            <!-- Let's do the locomotion -->
+            <!-- Let's do the locomotion (Adds the locomotion curves in the path)-->
             <KeyPosition
                 motion:framePosition="25"
                 motion:keyPositionType="pathRelative"
@@ -47,7 +47,7 @@
         </KeyFrameSet>
 
 
-        <!-- Rotate the sun -->
+        <!-- Rotate and scale the sun -->
         <KeyFrameSet>
             <KeyAttribute
                 android:rotation="-360"
@@ -61,7 +61,7 @@
                 motion:motionTarget="@id/sun" />
         </KeyFrameSet>
 
-        <!-- Change the background -->
+        <!-- Change background color -->
         <KeyFrameSet>
             <KeyAttribute
                 motion:framePosition="0"
